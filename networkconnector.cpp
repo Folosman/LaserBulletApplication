@@ -8,15 +8,15 @@ NetworkConnector::NetworkConnector(QObject *parent)
     // QUrl url("http://example.com/api/stream");
     // QNetworkRequest request(url);
     // request.setHeader("Accept", "application/json");
-
+    tcpSocket = new QTcpSocket(this);
 
     // connect(reply, this, &QNetworkReply::readyRead, NetworkConnector::replyData);
-    connect(tcpSocket, this, &QTcpSocket::readyRead, &NetworkConnector::readData);
+    connect(tcpSocket, &QTcpSocket::readyRead, this, &NetworkConnector::readData);
 
-    openSocket;
+    openSocket();
 }
 
-~NetworkConnector()
+NetworkConnector::~NetworkConnector()
 {
     tcpSocket->disconnectFromHost();
 }
