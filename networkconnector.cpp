@@ -4,6 +4,9 @@
 NetworkConnector::NetworkConnector(QObject *parent)
     : QObject{parent}
 {
+
+        /*        Уточнить тз, вообще не понятно, что делать ЛОЛ        */
+    
     // QNetworkAccessManager manager;
     // QUrl url("http://example.com/api/stream");
     // QNetworkRequest request(url);
